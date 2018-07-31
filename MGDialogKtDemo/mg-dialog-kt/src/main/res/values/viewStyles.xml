@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--將所有元件跟view繼承的上層alpha屬性抽出-->
+    <attr name="bv_touch_alpha" format="boolean" />
+    <attr name="bw_touch_alpha" format="boolean" />
+
+    <declare-styleable name="BaseWidget">
+        <attr name="bw_touch_alpha" />
+    </declare-styleable>
+
+</resources>
+
+
+
+
+
+
