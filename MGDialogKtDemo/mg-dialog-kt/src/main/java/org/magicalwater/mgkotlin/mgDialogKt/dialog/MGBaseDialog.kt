@@ -51,6 +51,14 @@ open class MGBaseDialog : Dialog {
         if (width > 0) lp.width = width
 
         win.attributes = lp
+
+        setOnKeyListener { _, i, _ ->
+            if (i == android.view.KeyEvent.KEYCODE_BACK && cancelTouchout && isShowing && dialogType != null) {
+                //如果點擊外部可取消, 回傳點選的callback
+                cancelDelegateMG?.outsideCancel(this, dialogType!!)
+            }
+            return@setOnKeyListener true
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
