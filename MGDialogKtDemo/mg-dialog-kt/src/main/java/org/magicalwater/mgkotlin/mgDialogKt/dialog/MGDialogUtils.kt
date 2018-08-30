@@ -1,6 +1,7 @@
 package org.magicalwater.mgkotlin.mgDialogKt.dialog
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.View
 
 typealias MGDialogResultHandler = (type: MGDialogButton, data: Any?) -> Boolean
@@ -45,6 +46,10 @@ class MGDialogUtils {
             }
 
             val dialog = builder.build()
+            val drawable = attr.background
+            if (drawable != null) {
+                dialog.window.setBackgroundDrawable(drawable)
+            }
             dialog.show()
 
             dialogMap[attr.dialogType] = Pair(dialog, attr.resultHandler)
@@ -98,5 +103,6 @@ class MGDialogUtils {
                           var height: Int? = null,
                           var dialogType: MGDialogType,
                           var cancelOut: Boolean = false,
+                          var background: Drawable? = null,
                           var resultHandler: MGDialogResultHandler? = null)
 }
